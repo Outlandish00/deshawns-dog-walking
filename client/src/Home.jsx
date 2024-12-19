@@ -1,18 +1,16 @@
-import { getGreeting } from "./apiManager";
+import { getDogs, getGreeting } from "./apiManager";
 import { useEffect, useState } from "react";
-
+import "./Home.css"
 export default function Home() {
-  const [greeting, setGreeting] = useState({
-    message: "Not Connected to the API",
-  });
+  const [dogs, setDogs] = useState([]);
 
   useEffect(() => {
-    getGreeting()
-      .then(setGreeting)
-      .catch(() => {
-        console.log("API not connected");
-      });
+getDogs().then(setDogs);
   }, []);
 
-  return <p>{greeting.message}</p>;
+  return <div className="d-flex container gap-5 align-items-center card-container">
+      {dogs.map((dog) => {
+        return <div className="card"><h3>{dog.name}</h3></div>
+      })}
+  </div>
 }
