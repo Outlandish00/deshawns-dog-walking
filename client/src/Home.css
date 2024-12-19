@@ -1,7 +1,19 @@
 .card {
     width: 10rem;
+    background-color: #f8f9fa;
+    height: 2.5rem;
+    text-align: center;
+    justify-content: center;
 }
-
+a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+a:hover {
+    transform: scale(1.05);
+}
 .card-container {
     margin-top: 100px;
+ 
 }

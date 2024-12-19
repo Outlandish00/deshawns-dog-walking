@@ -1,0 +1,14 @@
+.dog-details-card{
+    width: 25rem;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 40rem;
+}
+
+.container{
+
+    margin-top:100px;
+    justify-content: center;
+    
+}

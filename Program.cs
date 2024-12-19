@@ -134,4 +134,35 @@ app.MapGet(
     }
 );
 
+app.MapGet(
+    "/api/dogs/{id}",
+    (int id) =>
+    {
+        Dog foundDog = dogs.FirstOrDefault(d => d.Id == id);
+        Walker foundWalker = walkers.FirstOrDefault(w => w.Id == foundDog.WalkerId);
+        City foundCity = cities.FirstOrDefault(c => c.Id == foundDog.CityId);
+        if (foundDog == null)
+        {
+            return Results.NotFound();
+        }
+        return Results.Ok(
+            new DogDTO
+            {
+                Id = foundDog.Id,
+                Name = foundDog.Name,
+                WalkerId = foundDog.WalkerId,
+                Walker =
+                    foundWalker != null
+                        ? new WalkerDTO { Id = foundWalker.Id, Name = foundWalker.Name }
+                        : null,
+                CityId = foundDog.CityId,
+                City =
+                    foundCity != null
+                        ? new CityDTO { Id = foundCity.Id, Name = foundCity.Name }
+                        : null,
+            }
+        );
+    }
+);
+
 app.Run();
