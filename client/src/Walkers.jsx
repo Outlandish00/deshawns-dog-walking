@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { getCities, getWalkerCities, getWalkers } from "./apiManager";
 import { useOutletContext } from "react-router-dom";
 
@@ -7,7 +7,7 @@ export const Walkers = () => {
     const [walkerCities, setWalkerCities] = useState([])
     const [filteredWalkers, setFilteredWalkers] = useState([])
     const [cities, setAllCities] = useState([]);
-    const { selectedCityId } = useOutletContext();
+    let { selectedCityId } = useOutletContext();;
     console.log('Selected City ID:', selectedCityId);
 
 
