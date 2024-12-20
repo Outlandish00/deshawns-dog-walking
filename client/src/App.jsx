@@ -2,10 +2,12 @@ import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
   return (
+  
     <div className="App">
       <>
         <Navbar color="light" expand="md">
@@ -14,6 +16,11 @@ function App() {
             <NavItem>
               <NavLink href="/walkers">Walkers</NavLink>
             </NavItem>
+            {location.pathname == "/" && (
+              <NavItem>
+                <NavLink href = "/add-dog"> Add Dog </NavLink>
+              </NavItem>
+            )}
           </Nav>
         </Navbar>
         <Outlet />

@@ -164,5 +164,33 @@ app.MapGet(
         );
     }
 );
+app.MapPost(
+    "/api/dogs",
+    (Dog newDog) =>
+    {
+        Walker foundWalker = walkers.FirstOrDefault(w => w.Id == newDog.WalkerId);
+        City foundCity = cities.First(c => c.Id == newDog.CityId);
 
+        newDog.Id = dogs.Max(d => d.Id) + 1;
+        dogs.Add(newDog);
+        return Results.Created(
+            $"/dogs/{newDog.Id}",
+            new DogDTO
+            {
+                Id = newDog.Id,
+                Name = newDog.Name,
+                WalkerId = foundWalker?.Id,
+                Walker =
+                    foundWalker != null
+                        ? new WalkerDTO { Id = foundWalker.Id, Name = foundWalker.Name }
+                        : null,
+                CityId = foundCity.Id,
+                City =
+                    foundCity != null
+                        ? new CityDTO { Id = foundCity.Id, Name = foundCity.Name }
+                        : null,
+            }
+        );
+    }
+);
 app.Run();
