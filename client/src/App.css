@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.city-filter-select{
+  color: #666767;
+  border-color: #666767;
+  margin-top: 8px;
+  text-align: center;
+  height: 1.5rem;
+  width:10rem;
+  
+}

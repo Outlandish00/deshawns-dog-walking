@@ -43,11 +43,18 @@ List<City> cities = new List<City>
 {
     new City() { Id = 1, Name = "San Francisco" },
     new City() { Id = 2, Name = "Nashville" },
+    new City() { Id = 3, Name = "Baltimore" },
+    new City() { Id = 4, Name = "Louisville" },
+    new City() { Id = 5, Name = "Gotham" },
 };
 
 List<Walker> walkers = new List<Walker>
 {
     new Walker() { Id = 1, Name = "Jessica" },
+    new Walker() { Id = 2, Name = "Nick" },
+    new Walker() { Id = 3, Name = "Jayden" },
+    new Walker() { Id = 4, Name = "Bruce Wayne" },
+    new Walker() { Id = 5, Name = "Literally Bayne" },
 };
 
 List<WalkerCity> walkerCities = new List<WalkerCity>
@@ -63,6 +70,36 @@ List<WalkerCity> walkerCities = new List<WalkerCity>
         Id = 2,
         WalkerId = 1,
         CityId = 2,
+    },
+    new WalkerCity()
+    {
+        Id = 3,
+        WalkerId = 2,
+        CityId = 2,
+    },
+    new WalkerCity()
+    {
+        Id = 4,
+        WalkerId = 2,
+        CityId = 3,
+    },
+    new WalkerCity()
+    {
+        Id = 5,
+        WalkerId = 3,
+        CityId = 4,
+    },
+    new WalkerCity()
+    {
+        Id = 6,
+        WalkerId = 4,
+        CityId = 5,
+    },
+    new WalkerCity()
+    {
+        Id = 7,
+        WalkerId = 5,
+        CityId = 5,
     },
 };
 
