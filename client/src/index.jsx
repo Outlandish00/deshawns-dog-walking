@@ -8,9 +8,11 @@ import Home from "./Home";
 import { DogDetails } from "./DogDetails";
 import { AddDog } from "./AddDog";
 import { getDogs } from "./apiManager";
+import { Walkers } from "./Walkers";
 
 
 export const Root = () => {
+  
   const [dogs, setDogs] = useState([]);
   useEffect(() => {
     getDogs().then(setDogs)
@@ -21,6 +23,7 @@ export const Root = () => {
         <Route index element={<Home setDogs = {setDogs} dogs = {dogs}/>} />
         <Route path="dogs/:dogId" element={<DogDetails />} setDogs = {setDogs} dogs = {dogs}/> 
         <Route path="/add-dog" element={<AddDog setDogs = {setDogs} dogs = {dogs}/>} />
+        <Route path="/walkers" element={<Walkers />} />
       </Route>
     </Routes>
   </BrowserRouter>)
