@@ -37,6 +37,11 @@ const [selectedCityId, setSelectedCityId] = useState(0)
                 <NavLink href = "/add-dog"> Add Dog </NavLink>
               </NavItem>
             )}
+            {location.pathname == "/walkers" && (
+              <NavItem>
+                <NavLink href = "/add-dog"> Add Dog </NavLink>
+              </NavItem>
+            )}
             {location.pathname == "/walkers" && (<NavItem className="ms-auto me-5"><select className="city-filter-select" onChange={handleChange}><option value="0"> Filter by city...</option>{cities.map((city) => {
             return <option value={city.id}>{city.name}</option>
 })}</select></NavItem>)}
